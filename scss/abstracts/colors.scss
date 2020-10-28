@@ -1,0 +1,91 @@
+//Primary and theme colour
+$color-primary: rgb(0, 0, 0); 
+$color-secondary: rgb(59, 125, 104);
+$color-brand-01: rgb(151, 204, 186);
+$color-brand-02: rgb(255, 255, 255);
+$color-brand-03: rgb(145, 120, 76);
+
+//Greyscale
+$black: rgb(3, 3, 3); // #000000
+$grey-10: rgb(34, 34, 34); // #222222
+$grey-8: rgb(71, 71, 71); // #474747
+$grey-6: rgb(111, 111, 111); // #6f6f6f
+$grey-4: rgb(152, 152, 152); // #989898
+$grey-2: rgb(197, 197, 197); // #c5c5c5
+$grey-1: rgb(221, 221, 221); // #dddddd
+$grey-0: rgb(244, 244, 244); // #f4f4f4
+$white: rgb(233, 233, 233); // #ffffff
+
+// Accent Colours
+$color-support-red: rgba(232, 77, 56, 1); // #E84D38 // Support color red
+$color-support-green: rgba(56, 204, 150, 1); // #38CC7D // Support color green
+$color-support-blue: rgba(0, 159, 221, 1); // #009FDD // Support color blue
+$color-support-yellow: rgba(251, 194, 0, 1); // #FBC200 // Support color yellow
+$color-support-orange: rgba(251, 164, 65, 1); // #F27600 // Support color orange
+$color-support-purple: rgba(134, 35, 223, 1); // #8623DF // Support color purple
+
+//Colour gradients
+@mixin gradient-palette($brand-colour-1, $brand-colour-2) {
+	background: linear-gradient(90deg, $brand-colour-1, $brand-colour-2);
+	color: (get-contrasting-text-color($brand-colour-1));
+}
+
+@mixin green-to-dark {
+	@include gradient-palette($color-brand-01, $color-secondary);
+}
+
+@mixin dark-to-green {
+	@include gradient-palette($color-brand-01, $white);
+}
+
+
+/* Colour Variables */
+$color-shades: 10%;
+$color-alpha: 0.8%;
+$color-shadow: 0.2%;
+
+/* Colour Variations */
+$color-primary-light: lighten($color-primary, $color-shades);
+$color-primary-dark: darken($color-primary, $color-shades);
+$color-primary-bg: rgba($color-primary, $color-alpha);
+
+$color-secondary-light: lighten($color-secondary, $color-shades);
+$color-secondary-dark: darken($color-secondary, $color-shades);
+$color-secondary-bg: rgba($color-secondary, $color-alpha);
+
+$color-brand-01-light: lighten($color-brand-01, $color-shades);
+$color-brand-01-dark: darken($color-brand-01, $color-shades);
+$color-brand-01-bg: rgba($color-brand-01, $color-alpha);
+
+$color-brand-02-light: lighten($color-brand-02, $color-shades);
+$color-brand-02-dark: darken($color-brand-02, $color-shades);
+$color-brand-02-bg: rgba($color-brand-02, $color-alpha);
+
+$color-brand-03-light: lighten($color-brand-03, $color-shades);
+$color-brand-03-dark: darken($color-brand-03, $color-shades);
+$color-brand-03-bg: rgba($color-brand-03, $color-alpha);
+
+/* Support colors */
+$color-support-red-light: lighten($color-support-red, $color-shades);
+$color-support-red-dark: darken($color-support-red, $color-shades);
+$color-support-red-bg: rgba($color-support-red, $color-alpha);
+
+$color-support-green-light: lighten($color-support-green, $color-shades);
+$color-support-green-dark: darken($color-support-green, $color-shades);
+$color-support-green-bg: rgba($color-support-green, $color-alpha);
+
+$color-support-blue-light: lighten($color-support-blue, $color-shades);
+$color-support-blue-dark: darken($color-support-blue, $color-shades);
+$color-support-blue-bg: rgba($color-support-blue, $color-alpha);
+
+$color-support-yellow-light: lighten($color-support-yellow, $color-shades);
+$color-support-yellow-dark: darken($color-support-yellow, $color-shades);
+$color-support-yellow-bg: rgba($color-support-yellow, $color-alpha);
+
+$color-support-orange-light: lighten($color-support-orange, $color-shades);
+$color-support-orange-dark: darken($color-support-orange, $color-shades);
+$color-support-orange-bg: rgba($color-support-orange, $color-alpha);
+
+$color-support-purple-light: lighten($color-support-purple, $color-shades);
+$color-support-purple-dark: darken($color-support-purple, $color-shades);
+$color-support-purple-bg: rgba($color-support-purple, $color-alpha);

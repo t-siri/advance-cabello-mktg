@@ -1,0 +1,11 @@
+
+body > h3 {
+    display: none;
+    @include media(xsm) {
+        display: block;
+        color: $color-brand-03;
+        font-weight: $text-bold;
+        font-family: $body-font-family;
+        margin-bottom: $space-sm;
+    }
+}

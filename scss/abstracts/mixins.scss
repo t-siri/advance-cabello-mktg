@@ -1,0 +1,105 @@
+//****************-------MEDIA QUERIES--------****************
+// Breakpoints for CSS variables
+// Used for the typography, spacing and the inputs
+@mixin media($keys...) {
+	@each $key in $keys {
+		@media (max-width: map-get($breakpoints, $key)) {
+			@content;
+		}
+	}
+}
+
+@mixin breakpoint($class, $orientation: portrait) {
+	@if $class==xs {
+		@media (max-width: map-get($breakpoints, xs)) and (orientation: $orientation) {
+			@content;
+		}
+	} @else if $class==sm {
+		@media (max-width: map-get($breakpoints, sm)) and (orientation: $orientation) {
+			@content;
+		}
+	} @else if $class==md {
+		@media (max-width: map-get($breakpoints, md)) and (orientation: $orientation) {
+			@content;
+		}
+	} @else if $class==lg {
+		@media (max-width: map-get($breakpoints, lg)) and (orientation: $orientation) {
+			@content;
+		}
+	} @else if $class==xl {
+		@media (max-width: map-get($breakpoints, xl)) and (orientation: $orientation) {
+			@content;
+		}
+	} @else {
+		@error "Breakpoint mixin supports: xs, sm, md, lg, xl or your custom breakpoint in the map";
+	}
+}
+//****************-------END MEDIA QUERIES--------****************
+
+//****************-------FONT RENDERING--------****************
+// edit font rendering -> tip: use for light text on dark backgrounds
+@mixin fontSmooth {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+//****************-------END FONT RENDERING--------***************
+
+//****************-------BOX SHADOWS--------*****************
+@mixin inner-box-shadow($horiz, $vert, $blur, $spread, $color) {
+	-webkit-box-shadow: inset $horiz $vert $blur $spread $color;
+	-moz-box-shadow: inset $horiz $vert $blur $spread $color;
+	box-shadow: inset $horiz $vert $blur $spread $color;
+}
+
+@mixin appearance-none {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+//Mixin for truncating text
+@mixin truncate {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+//Mixin for truncating more than first line of text
+@mixin truncate-more-lines($numLines: 1, $lineHeight: 1.412) {
+	overflow: hidden;
+	text-overflow: -o-ellipsis-lastline;
+	text-overflow: ellipsis;
+	display: block;
+	/* autoprefixer: off */
+	display: -webkit-box;
+	-webkit-line-clamp: $numLines;
+	-webkit-box-orient: vertical;
+	max-height: $numLines * $lineHeight + unquote("em");
+}
+
+@mixin mobBtn {
+	width: 100%;
+	display: inline-flex;
+	position: relative;
+	border: none;
+	justify-content: center;
+	align-items: center;
+	white-space: nowrap;
+	font-weight: $text-regular;
+	text-decoration: none;
+	line-height: 1;
+	padding: $space-xs;
+	border-radius: $btn-radius;
+	font-size: $btn-font-size;
+	font-family: $body-font-family;
+	min-width: convert-rem(150px);
+	cursor: pointer;
+	transition: 0.2s;
+	margin: $space-xs 0;
+	background-color: rgba($color-brand-03, 0.8);
+	color: $color-primary;
+	@include appearance-none;
+	@include fontSmooth;
+}

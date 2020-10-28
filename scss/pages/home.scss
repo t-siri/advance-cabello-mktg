@@ -1,0 +1,92 @@
+.home {
+    padding: $space-xl;
+    overflow: hidden;
+    @include media(xsm) {
+        padding: $space-md;
+        overflow-x: hidden;
+        overflow-y: auto;
+        > div {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+    header {
+        @include slideInDown(3s);
+    }
+    >div {
+        margin: auto 0;
+    }
+    .btn-group {
+        margin: $space-lg 0 $space-xl 0;
+        @include media(xsm) {
+            flex-direction: column;
+            margin: 0;
+            .btn {
+                width: 100%;
+            }
+        }
+        .btn {
+            margin: $space-xxs $space-md $space-xxs 0;
+            @include slideInUp(2s);
+        }
+    }
+    h2 {
+        margin: $space-lg 0;
+        font-size: 4vw;
+        padding-left: 0;
+
+        @include media(xsm) {
+            font-size: 2rem;
+            margin-bottom: $space-sm;
+        }
+        &:after {
+            height: 115%;
+            left: -4rem;
+            @include green-to-dark;
+            background-size: 400% 400%;
+            -webkit-animation: slideGradient 5s ease infinite;
+            -moz-animation: slideGradient 5s ease infinite;
+            animation: slideGradient 5s ease infinite;
+        }
+    }
+
+    section {
+        @include media(xsm) {
+            margin: 0;
+        }
+    }
+
+    section p {
+        font-size: $text-md;
+        font-weight: $text-light;
+        width: 45vw;
+        @include media(xsm) {
+            width: 100%;
+            background-color: $white;
+        }
+    }
+
+    .lines {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 105vh;
+        display: flex;
+        @include media(xsm) {
+            height: 100vh;
+        }
+        svg {
+            &:first-of-type {
+                position: absolute;
+                right: -15rem;
+                height: 100%;
+            }
+            &:nth-of-type(2) {
+                height: 50%;
+                position: absolute;
+                bottom: 0;
+                right: -6rem;
+            }
+        }
+    }
+}

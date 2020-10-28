@@ -1,0 +1,162 @@
+$btn-font-size: $base-font-size;
+$radius: 0;
+
+$btn-xs: calc(#{$btn-font-size} - 0.4rem);
+$btn-sm: calc(#{$btn-font-size} - 0.2rem);
+$btn-md: calc(#{$btn-font-size} + 0.2rem);
+$btn-lg: calc(#{$btn-font-size} + 0.4rem);
+$btn-xlg: calc(#{$btn-font-size} + 0.6rem);
+
+$btn-radius: $radius;
+
+/********** STANDARD BUTTONS **********/
+a {
+	// text-decoration: none;
+	cursor: pointer;
+	&:hover,
+	&:active, &.active {
+		@include transform-timing(.3s);
+		color: $color-secondary;
+		text-shadow: 1px 0 0 $color-secondary;
+	}
+}
+a {
+	.btn-group & {
+		text-decoration: none;
+		&:hover,
+		&:active {
+			border: none;
+		}
+	}
+}
+
+.btn {
+	display: inline-flex;
+	position: relative;
+	border: none;
+	justify-content: center;
+	align-items: center;
+	white-space: nowrap;
+	font-weight: $text-regular;
+	text-decoration: none;
+	line-height: 1;
+	padding: $space-xs;
+	border-radius: $btn-radius;
+	font-size: $btn-font-size;
+	font-family: $body-font-family;
+	min-width: convert-rem(150px);
+	cursor: pointer;
+	transition: 0.2s;
+	@include appearance-none;
+	@include fontSmooth;
+
+	@include media(xsm) {
+		padding: 1.25rem;
+	}
+
+	a & {
+		text-decoration: none;
+		color: $black;
+		border-bottom: none;
+
+		&:active,
+		&:focus,
+		&:visited {
+			text-decoration: none;
+		}
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		transition: none;
+	}
+
+	&:hover {
+		cursor: pointer;
+		@include transform-timing($animation-time);
+
+		@-moz-document url-prefix() {
+			transition: none;
+		}
+	}
+
+	&.active {
+		cursor: default;
+	}
+}
+
+.btn--solid {
+	background-color: $color-brand-03-light;
+	color: $color-primary;
+
+	&:hover,
+	&:active,
+	&.active {
+		a {
+			color: $color-primary;
+			text-shadow: 1px 0 0 $color-primary;
+		}
+		background-color: $color-brand-01;
+		color: $color-primary;
+	}
+}
+.btn--outline {
+	color: $color-primary;
+	background-color: transparent;
+	@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(1px), $color-primary);
+
+	&:hover,
+	&:active,
+	&.active {
+		a {
+			color: $color-primary;
+			text-shadow: 1px 0 0 $color-primary;
+		}
+		background-color: $color-brand-01;
+		color: $color-primary;
+		@include inner-box-shadow(
+			convert-rem(0px),
+			convert-rem(0px),
+			convert-rem(0px),
+			convert-rem(1px),
+			$color-brand-01
+		);
+	}
+}
+.btn--text {
+	color: $color-primary;
+	background-color: transparent;
+	&:hover,
+	&:active {
+		color: $color-secondary-dark;
+		text-decoration: underline;
+	}
+}
+
+.btn-group {
+	display: flex;
+	flex-wrap: wrap;
+
+	.btn {
+		margin: $space-xs;
+		&:first-of-type {
+			margin-left: 0;
+		}
+	}
+
+	&.btn-group--vertical {
+		flex-direction: column;
+
+		.btn {
+			width: auto;
+			margin-left: 0;
+		}
+	}
+
+	&.btn-group--horizontal {
+		flex-direction: row;
+	}
+}

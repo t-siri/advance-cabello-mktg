@@ -1,0 +1,41 @@
+.about {
+
+    section {
+        margin-top: auto;
+        width: 45vw;
+        @include media(xsm){
+            width: 95%;
+            p {
+                background-color: $white;
+            }
+        }
+        p {
+            font-weight: $text-light;
+        }
+    }
+
+    .lines {
+        position: absolute;
+        right: 0;
+        top: -2rem;
+        height: 105vh;
+        @include media(xsm) {
+            height: 100vh;
+            top: 0;
+        }
+        svg {
+            height: 100%;
+            &:first-of-type {
+                position: absolute;
+                right: -25rem;
+                height: 100%;
+            }
+            &:nth-of-type(2) {
+                height: 50%;
+                position: absolute;
+                bottom: 0;
+                right: -6rem;
+            }
+        }
+    }
+}

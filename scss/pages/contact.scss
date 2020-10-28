@@ -1,0 +1,104 @@
+.contact-page {
+    overflow: hidden;
+    @include media(xsm) {
+        padding: $space-md;
+        overflow-y: auto;
+    }
+
+    section,
+    nav {
+        margin-bottom: $space-sm;
+        @include media(xsm) {
+            margin-bottom: 0;
+        }
+    }
+    .contact-page-form {
+        display: flex;
+        flex-direction: column;
+        p {
+            @include media(xsm) {
+                background-color: $white;
+            }
+            margin: 0.4rem 0 0 0;
+        }
+        .input-group {
+            &:first-of-type {
+                margin-top: $space-md;
+            }
+            label {
+                @include media(xsm) {
+                    background-color: $white;
+                }
+                display: flex;
+                flex-direction: column;
+            }
+            input,
+            textarea {
+                @include media(xsm) {
+                    background-color: $white;
+                }
+                @include media(md) {
+                    width: 100%;
+                }
+                width: 500px;
+            }
+            textarea {
+                height: 120px;
+            }
+        }
+        .btn {
+            margin-left: 350px;
+            @include media(md) {
+                margin-left: calc(100% - 150px);
+            }
+            @include media(xs) {
+                margin: auto;
+                width: 100%;
+            }
+        }
+
+        .submit-message {
+            opacity: 0;
+            height: 0;
+        }
+
+        &.submitted {
+            .submit-message {
+                opacity: 1;
+                height: auto;
+                @include slideInDown(1s);
+            }
+
+            .contact {
+                opacity: 0;
+                height: 0;
+            }
+        }
+    }
+
+    .lines {
+        position: absolute;
+        right: 0;
+        top: -2rem;
+        height: 105vh;
+        @include media(xsm) {
+            height: 100vh;
+            top: 0;
+            z-index: -1;
+        }
+        svg {
+            height: 100%;
+            &:first-of-type {
+                position: absolute;
+                right: -25rem;
+                height: 100%;
+            }
+            &:nth-of-type(2) {
+                height: 50%;
+                position: absolute;
+                bottom: 0;
+                right: -6rem;
+            }
+        }
+    }
+}

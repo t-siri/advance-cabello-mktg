@@ -1,0 +1,61 @@
+.kitoko {
+    &:before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba($white, 0.8);
+        z-index: -1;
+    }
+    > section {
+        display: grid;
+        grid-template-areas:
+            "content img"
+            "content img";
+        @include media(xsm) {
+            grid-template-areas:
+                "img2"
+                "content"
+                "img3";
+        }
+    }
+    .kitoko-content {
+        grid-area: content;
+        width: 90%;
+        @include media(xsm) {
+            width: 95%;
+        }
+    }
+    img {
+        &:first-of-type {
+            grid-area: img;
+            margin: auto 0;
+            @include media(xsm) {
+                display: none;
+            }
+        }
+        &:nth-of-type(2) {
+            grid-area: img2;
+            display: none;
+            @include media(xsm) {
+                display: block;
+                width: calc(100% + 4rem);
+                margin-left: -2rem;
+                margin-bottom: $space-md;
+            }
+        }
+        &:last-of-type {
+            grid-area: img3;
+            display: none;
+            @include media(xsm) {
+                display: block;
+                width: calc(100% + 4rem);
+                margin-left: -2rem;
+            }
+        }
+        width: 100%;
+        object-fit: cover;
+    }
+}

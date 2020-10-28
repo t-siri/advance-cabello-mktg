@@ -1,0 +1,255 @@
+#menu,
+.menu-link {
+    position: fixed;
+}
+
+// https://codepen.io/designcouch/pen/Atyop
+/* Icon 1 */
+
+#nav-icon1 {
+    //hamburger width
+    width: convert-rem(25px);
+    height: convert-rem(30px);
+    position: relative;
+    margin: auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    //hamburger
+    span {
+        display: block;
+        position: absolute;
+        height: convert-rem(3px);
+        width: 100%;
+        background: $color-brand-03;
+        border-radius: convert-rem(9px);
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: 0.25s ease-in-out;
+        -moz-transition: 0.25s ease-in-out;
+        -o-transition: 0.25s ease-in-out;
+        transition: 0.25s ease-in-out;
+        &:nth-child(1) {
+            top: convert-rem(0px);
+        }
+        &:nth-child(2) {
+            top: convert-rem(8px);
+        }
+        &:nth-child(3) {
+            top: convert-rem(16px);
+        }
+    }
+
+    //animate to x
+    &.open {
+        span {
+            &:nth-child(1) {
+                top: convert-rem(10px);
+                -webkit-transform: rotate(135deg);
+                -moz-transform: rotate(135deg);
+                -o-transform: rotate(135deg);
+                transform: rotate(135deg);
+                background-color: $color-secondary;
+            }
+            &:nth-child(2) {
+                opacity: 0;
+                left: convert-rem(-60px);
+                background-color: $color-secondary;
+            }
+            &:nth-child(3) {
+                top: convert-rem(10px);
+                -webkit-transform: rotate(-135deg);
+                -moz-transform: rotate(-135deg);
+                -o-transform: rotate(-135deg);
+                transform: rotate(-135deg);
+                background-color: $color-secondary;
+            }
+        }
+    }
+}
+
+.menu-link {
+    right: 1rem;
+    font-size: 1.8rem;
+    z-index: 50000;
+    text-decoration: none;
+    @media screen and (min-width: 650px) {
+        display: none;
+    }
+}
+
+#menu {
+    margin-top: -1%;
+    text-align: left;
+    background-color: rgba($white, 0.95);
+    .btn-group {
+        margin-top: convert-rem(40px);
+
+        @include media(xsm) {
+            margin-top: 0;
+            .btn {
+                padding: $space-xs;
+            }
+        }
+
+        .btn {
+            font-size: 0.85rem;
+            margin: 0.6rem 0;
+            &:first-of-type {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+// A tag animation
+nav {
+    margin-bottom: $space-lg;
+    display: flex;
+    align-items: center;
+
+    #thai,
+    #english {
+        margin-left: auto;
+        margin-right: $space-sm;
+        @include media(xsm) {
+            padding: $space-sm;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: $space-md;
+        }
+    }
+    @include media(xsm) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: $space-md;
+        z-index: 100;
+    }
+    .home-link {
+        z-index: 2;
+        text-decoration: none;
+        @include media(xsm) {
+            font-size: 1.4rem;
+            margin-left: 0;
+            width: 100%;
+
+            h2 {
+                text-align: center;
+                width: 100%;
+                margin: 0;
+                @include green-to-dark;
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        &:hover,
+        &:active {
+            text-shadow: 1px 0 0 $color-primary;
+            @include transform-timing(0.3s);
+        }
+    }
+    .btn-group {
+        display: flex;
+        a {
+            position: relative;
+            color: $color-primary;
+            margin: 0 $space-sm;
+            font-size: 1.1rem;
+            &:hover,
+            &:active,
+            &.active {
+                @include transform-timing(0.3s);
+                color: $color-secondary;
+                text-shadow: 1px 0 0 $color-secondary;
+            }
+            &:first-of-type {
+                margin-left: 0;
+            }
+
+            &.btn--solid {
+                &:hover,
+                &:active,
+                &.active {
+                    @include transform-timing(1s);
+                    color: $color-primary;
+                    text-shadow: 1px 0 0 $color-primary;
+                }
+            }
+
+            //bottom border animation
+            .slider {
+                position: absolute;
+                display: block;
+                left: 0;
+                top: 90%;
+                margin: 2px auto;
+                height: 2px;
+                background-color: $color-secondary;
+                width: 0%;
+                transition: width 0.3s ease;
+                @include media(xsm) {
+                    display: none;
+                }
+            }
+            &:hover .slider,
+            &:active .slider,
+            &.active .slider {
+                width: 100%;
+            }
+        }
+
+        //mobile
+
+        @include media(xsm) {
+            flex-direction: column;
+            margin: auto;
+            width: 100%;
+            a {
+                @include mobBtn;
+                &:first-of-type {
+                    margin-left: 0;
+                    margin-top: $space-lg;
+                }
+                @include media(xsm) {
+                    padding: 1.25rem;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+
+                &:active {
+                    transition: none;
+                }
+
+                &:hover,
+                &:active,
+                &.active {
+                    cursor: pointer;
+                    @include transform-timing($animation-time);
+
+                    @-moz-document url-prefix() {
+                        transition: none;
+                    }
+                    text-shadow: 1px 0 0 $color-primary;
+
+                    background-color: $color-brand-01;
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+}
