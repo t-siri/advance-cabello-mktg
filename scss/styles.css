@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lora:300,400,400i,600,700&display=swap");
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; }
+
 /* Colour Variables */
 /* Colour Variations */
 /* Support colors */
@@ -15,9 +23,6 @@ https://medium.com/codyhouse/create-your-design-system-part-4-spacing-895c9213e2
 Typography
 https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd
 -------------------------------- */
-@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Lora:300,400,400i,600,700&display=swap");
 /* Font family */
 /* Weights */
 /* Type scale */
@@ -3296,12 +3301,14 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: auto;
-  height: calc(100vh - 4rem);
+  height: 100vh;
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
   animation-duration: 1s;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative; }
   body header {
     -webkit-animation-name: slideInDown;
     animation-name: slideInDown;

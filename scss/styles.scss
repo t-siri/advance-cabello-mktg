@@ -1,9 +1,14 @@
+html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
 
 // Abstract Imports
-@import 'abstracts/import-abstracts.scss';
+@import "abstracts/import-abstracts.scss";
 
 //Import animations
-@import 'animations/motion.scss';
+@import "animations/motion.scss";
 
 // Elements - These are modules of each individual element
 @import "elements/import-elements.scss";

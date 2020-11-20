@@ -10,6 +10,8 @@ body {
     @include fadeIn(1s);
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
     header {
         @include slideInDown(0.5s);
     }
